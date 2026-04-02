@@ -436,41 +436,49 @@ def ch04_event_types():
 def ch05_tool_categories():
     """第5章: 工具分类"""
     dot = make_dot("ch05_tool_categories", "claw-code 的 18 个工具（按类型分类）")
-    dot.attr(rankdir="LR", nodesep="0.3", ranksep="0.5")
+    dot.attr(rankdir="TB", nodesep="0.15", ranksep="0.3")
 
-    with dot.subgraph(name="cluster_file") as c:
-        c.attr(style="filled", fillcolor=COLORS["bg_tool"], label="文件操作（核心）", fontname="Arial", fontsize="13")
-        node(c, "read", "read_file\n读取文件", COLORS["tool"])
-        node(c, "write", "write_file\n写入文件", COLORS["tool"])
-        node(c, "edit", "edit_file\n编辑文件", COLORS["tool"])
+    # 第一行：核心 + 搜索 + 执行
+    with dot.subgraph(name="cluster_row1") as row:
+        row.attr(style="invis")
 
-    with dot.subgraph(name="cluster_search") as c:
-        c.attr(style="filled", fillcolor=COLORS["bg_user"], label="搜索工具", fontname="Arial", fontsize="13")
-        node(c, "glob", "glob_search\n按文件名搜索", COLORS["user"])
-        node(c, "grep", "grep_search\n按内容搜索", COLORS["user"])
+        with row.subgraph(name="cluster_file") as c:
+            c.attr(style="filled", fillcolor=COLORS["bg_tool"], label="文件操作（核心）", fontname="Arial", fontsize="13")
+            node(c, "read", "read_file\n读取文件", COLORS["tool"])
+            node(c, "write", "write_file\n写入文件", COLORS["tool"])
+            node(c, "edit", "edit_file\n编辑文件", COLORS["tool"])
 
-    with dot.subgraph(name="cluster_exec") as c:
-        c.attr(style="filled", fillcolor=COLORS["bg_core"], label="执行工具", fontname="Arial", fontsize="13")
-        node(c, "bash", "bash\n执行命令", COLORS["core"])
-        node(c, "repl", "REPL\n执行代码", COLORS["core"])
-        node(c, "pwsh", "PowerShell\nWindows 命令", COLORS["core"])
+        with row.subgraph(name="cluster_search") as c:
+            c.attr(style="filled", fillcolor=COLORS["bg_user"], label="搜索工具", fontname="Arial", fontsize="13")
+            node(c, "glob", "glob_search\n按文件名搜索", COLORS["user"])
+            node(c, "grep", "grep_search\n按内容搜索", COLORS["user"])
 
-    with dot.subgraph(name="cluster_web") as c:
-        c.attr(style="filled", fillcolor="#F4ECF7", label="网络工具", fontname="Arial", fontsize="13")
-        node(c, "fetch", "WebFetch\n抓取网页", "#9B59B6")
-        node(c, "search", "WebSearch\n搜索互联网", "#9B59B6")
+        with row.subgraph(name="cluster_exec") as c:
+            c.attr(style="filled", fillcolor=COLORS["bg_core"], label="执行工具", fontname="Arial", fontsize="13")
+            node(c, "bash", "bash\n执行命令", COLORS["core"])
+            node(c, "repl", "REPL\n执行代码", COLORS["core"])
+            node(c, "pwsh", "PowerShell\nWindows 命令", COLORS["core"])
 
-    with dot.subgraph(name="cluster_other") as c:
-        c.attr(style="filled", fillcolor="#FEF9E7", label="其他工具", fontname="Arial", fontsize="13")
-        node(c, "agent", "Agent\n子代理", COLORS["data"])
-        node(c, "skill", "Skill\n技能加载", COLORS["data"])
-        node(c, "todo", "TodoWrite\n任务列表", COLORS["data"])
-        node(c, "nb", "NotebookEdit\n编辑笔记本", COLORS["data"])
-        node(c, "ts", "ToolSearch\n搜索工具", COLORS["data"])
-        node(c, "cfg", "Config\n配置管理", COLORS["data"])
-        node(c, "slp", "Sleep\n等待", COLORS["data"])
-        node(c, "msg", "SendUserMessage\n发消息", COLORS["data"])
-        node(c, "so", "StructuredOutput\n结构化输出", COLORS["data"])
+    # 第二行：网络 + 其他
+    with dot.subgraph(name="cluster_row2") as row:
+        row.attr(style="invis")
+
+        with row.subgraph(name="cluster_web") as c:
+            c.attr(style="filled", fillcolor="#F4ECF7", label="网络工具", fontname="Arial", fontsize="13")
+            node(c, "fetch", "WebFetch\n抓取网页", "#9B59B6")
+            node(c, "search", "WebSearch\n搜索互联网", "#9B59B6")
+
+        with row.subgraph(name="cluster_other") as c:
+            c.attr(style="filled", fillcolor="#FEF9E7", label="其他工具", fontname="Arial", fontsize="13")
+            node(c, "agent", "Agent\n子代理", COLORS["data"])
+            node(c, "skill", "Skill\n技能加载", COLORS["data"])
+            node(c, "todo", "TodoWrite\n任务列表", COLORS["data"])
+            node(c, "nb", "NotebookEdit\n编辑笔记本", COLORS["data"])
+            node(c, "ts", "ToolSearch\n搜索工具", COLORS["data"])
+            node(c, "cfg", "Config\n配置管理", COLORS["data"])
+            node(c, "slp", "Sleep\n等待", COLORS["data"])
+            node(c, "msg", "SendUserMessage\n发消息", COLORS["data"])
+            node(c, "so", "StructuredOutput\n结构化输出", COLORS["data"])
 
     save(dot, "ch05_tool_categories")
 
