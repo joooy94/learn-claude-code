@@ -252,7 +252,7 @@ def ch02_crate_architecture():
 def ch03_prompt_layers():
     """第3章: System Prompt 分层结构"""
     dot = make_dot("ch03_prompt_layers", "System Prompt 的分层结构")
-    dot.attr(rankdir="TB", ranksep="0.4")
+    dot.attr(rankdir="TB", ranksep="0.4", size="10,5!")
 
     node(dot, "intro",   "📋 身份定义\n\"你是一个编程助手\"",      "#3498DB", icon="")
     node(dot, "style",   "🎨 输出风格\n\"回答要简洁\"",         "#9B59B6", icon="")
@@ -293,7 +293,7 @@ def ch03_prompt_layers():
 def ch03_claude_md_discovery():
     """第3章: CLAUDE.md 文件发现过程"""
     dot = make_dot("ch03_claude_md_discovery", "CLAUDE.md 文件是怎么被发现的")
-    dot.attr(rankdir="LR", ranksep="0.3")
+    dot.attr(rankdir="LR", ranksep="0.3", size="10,4!")
 
     with dot.subgraph(name="cluster_fs") as c:
         c.attr(style="filled", fillcolor=COLORS["bg_light"], label="你的文件系统", fontname="Arial", fontsize="13")
@@ -316,7 +316,7 @@ def ch03_claude_md_discovery():
 def ch03_budget():
     """第3章: 指令文件预算控制"""
     dot = make_dot("ch03_budget", "指令文件的预算控制")
-    dot.attr(rankdir="TB")
+    dot.attr(rankdir="TB", size="10,4!")
 
     node(dot, "f1", "CLAUDE.md (根目录)\n\"用 Python 3.12\"\n120 字 → ✅ 放行", "#2ECC71")
     node(dot, "f2", "CLAUDE.md (src/)\n\"代码风格遵循 PEP 8\"\n80 字 → ✅ 放行", "#2ECC71")
