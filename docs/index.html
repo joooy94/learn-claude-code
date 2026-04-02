@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Agent 架构教程 — 从零理解 Claude Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一本面向普通人和程序员的 AI Agent 架构教程，基于 claw-code 源码分析。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    /* 自定义样式 */
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    .markdown-section h1 { color: #2c3e50; }
+    .markdown-section h2 { color: #34495e; border-bottom: 1px solid #eee; padding-bottom: 0.3em; }
+    .markdown-section code { font-family: "SF Mono", "Fira Code", "Consolas", monospace; }
+    /* 图片居中并限制宽度 */
+    .markdown-section img { display: block; margin: 1em auto; max-width: 100%; }
+    /* 表格样式 */
+    .markdown-section table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+    .markdown-section table th, .markdown-section table td { border: 1px solid #ddd; padding: 8px 12px; }
+    .markdown-section table th { background-color: #f6f8fa; }
+    /* 引用块样式 */
+    .markdown-section blockquote { background: #f8f9fa; border-left: 4px solid #42b983; padding: 10px 20px; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <div id="app">加载中...</div>
+  <script>
+    window.$docsify = {
+      name: 'AI Agent 架构教程',
+      nameLink: '/',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索',
+        noData: '没有结果',
+        depth: 6
+      },
+      pagination: {
+        previousText: '上一章节',
+        nextText: '下一章节',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      copyCode: {
+        buttonText: '复制',
+        errorText: '错误',
+        successText: '已复制'
+      }
+    }
+  </script>
+  <!-- Docsify 核心 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 搜索插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 代码复制插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+  <!-- 分页导航插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+  <!-- 代码高亮：Rust -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-rust.min.js"></script>
+  <!-- 代码高亮：Python -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <!-- 代码高亮：Bash -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <!-- 代码高亮：JSON -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <!-- 外部链接插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+</body>
+</html>
